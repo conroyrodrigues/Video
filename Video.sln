@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Video.Web", "Video.Web\Video.Web.csproj", "{73A5C958-8983-4968-9079-A1E504C94D2A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Video.Tests", "Tests\Video.Tests\Video.Tests.csproj", "{54591672-6B9F-4EF9-BC0B-C9FB472F310A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{36004005-051A-4BE0-80A7-919C9CADACB5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{73A5C958-8983-4968-9079-A1E504C94D2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73A5C958-8983-4968-9079-A1E504C94D2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73A5C958-8983-4968-9079-A1E504C94D2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73A5C958-8983-4968-9079-A1E504C94D2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54591672-6B9F-4EF9-BC0B-C9FB472F310A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54591672-6B9F-4EF9-BC0B-C9FB472F310A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54591672-6B9F-4EF9-BC0B-C9FB472F310A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54591672-6B9F-4EF9-BC0B-C9FB472F310A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{54591672-6B9F-4EF9-BC0B-C9FB472F310A} = {36004005-051A-4BE0-80A7-919C9CADACB5}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {291F8F5E-A058-4885-97A8-34BFEC137D23}
+	EndGlobalSection
+EndGlobal

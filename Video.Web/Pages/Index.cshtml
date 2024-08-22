@@ -1,0 +1,120 @@
+﻿@page
+@using Video.Web.Transport
+
+@model IndexModel
+
+@{
+    ViewData["Title"] = "Catalog";
+}
+
+<div class="container">
+
+    <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <button class="nav-link active" id="nav-catalogue-tab" data-bs-toggle="tab" data-bs-target="#nav-catalogue" type="button" role="tab" aria-controls="nav-catalogue" aria-selected="true">Catalogue</button>
+            <button class="nav-link" id="nav-upload-tab" data-bs-toggle="tab" data-bs-target="#nav-upload" type="button" role="tab" aria-controls="nav-upload aria-selected="false">Upload</button>
+        </div>
+    </nav>
+    <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade show active" id="nav-catalogue" role="tabpanel" aria-labelledby="nav-catalogue-tab">
+
+            <div class="card">
+                <div class="card-body">
+                    <h4>
+                        Existing media files
+                    </h4>
+                    <br />
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Video Name</th>
+                                <th>File Size</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var video in Model.Videos)
+                            {
+                            <tr>
+                            <td>@video.FileName</td>
+                            <td>@(video.FileSize + " " + "MB")</td>
+                            <td>
+                            <button class="btn btn-primary" onclick="playVideo('@video.FilePath')">Play</button>
+                            </td>
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+                    <br />
+                    <div>
+                        <h3>Video Playback</h3>
+                        <video id="videoFile" width="800" controls>
+                            <source id="videoSource" src="" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="tab-pane fade" id="nav-upload" role="tabpanel" aria-labelledby="nav-upload-tab">
+
+            <div class="card">
+                <div class="card-body">
+                    <h4>
+                        Select a file to upload
+                    </h4>
+                    <br />
+                    <form  id="video-uploader" method="post" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="videoFiles">Select MP4 Files:</label>
+                            <input type="file" id="videoFiles" name="videoFiles" accept=".mp4" class="form-control">
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-3" onclick="uploadVideo()">Upload</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <br />
+
+
+    @section Scripts {
+        <script>
+            function playVideo(filePath) 
+            {
+                var videoFile = document.getElementById('videoFile');
+                var videoSource = document.getElementById('videoSource');
+                videoSource.src = filePath;
+                videoFile.load();
+                videoFile.play();
+            }
+
+            function uploadVideo() {
+                var formData = new FormData();
+                var filesToUpload = document.getElementById('fileInput').files;
+                debugger;
+                
+                if (filesToUpload.length > 0) { alert('No files selected') }
+
+                for (var i = 0; i < filesToUpload.length; i++) 
+                {
+                    formData.append('files', filesToUpload[i]);  
+                }
+
+                fetch('/upload', {
+                    method: 'POST',
+                    body: formData,
+                })
+                    .then(response => { if (!response.ok) { throw new Error('Upload failed'); } })
+                    .then(data => { location.reload(); })
+                    .catch(error =>  alert('Error: ' + error.message));
+                
+            }
+
+
+        </script>
+    }

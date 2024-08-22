@@ -1,0 +1,22 @@
+### File Uploader 
+This App uploads the .mp4 files via an API and Web app
+
+### Requirement
+The application is to provide the following features for its users: 
+- Allow users to see a list of video files that have been uploaded to a server media folder 
+- Allow users to upload new MP4 video files into the server media folder 
+- Allow users to playback any MP4 video file that is in the server media folder 
+
+### For Postman
+
+Feel free to use the collection in .dev folder
+
+### Docker Setup
+
+The Application can run using Docker
+
+NOTE: The Port used for docker is 32768
+
+#### TODO
+
+The Unit Tests are not complete, its still in the making
